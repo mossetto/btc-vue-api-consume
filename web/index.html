@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body >
+<div class="cover-app">
+    <div id="app">
+        <div class="layer-off" id="layer">
+            <main>
+                <img src="coin.png" alt="">
+                <button v-if="clicked" class="entrar" id="btn-entrar" v-on:click="clicked = !clicked">Entrar</button>
+                <button v-else="clicked" class="entrar" id="btn-entrar" v-on:click="clicked = !clicked">Salir</button>
+                </button>
+                <div id="contenido">
+                    <h1>{{ titulo }}</h1>
+                    <!-- <h1>{{ bitcoinData.price*cantidad }}</h1> -->
+                    <hr>
+                    <div class="wrap-btns">
+                        <span class="instructions">Select the type of currency</span>
+                        <div class="btns">
+                            <button class="btn" v-on:click="resultado = 'usd'">USD</button>
+                            <button class="btn" v-on:click="resultado = 'eur'">EUR</button>
+                            <button class="btn" v-on:click="resultado = 'gbp'">GBP</button>
+                        </div>
+                    </div>
+                    <div class="wrap-btc-val">
+                        <span>BTC</span>
+                        <input type="number" v-model="cantidad">
+                    </div>
+                    <span class="igual">=</span>
+                    <div class="wrap-currency-val">
+                        <span>{{ resultado.toUpperCase() }}</span>
+                        <!-- <input type="string" v-model="bitcoinData.priceeur*cantidad"> -->
+                        <input type="number" v-model="cantidad*bitcoinData['price'+ resultado]">
+                    </div>
+                    <span class="instructions">{{bitcoinData.time}}</span>
+                </div>
+                <!-- <h3> {{ bitcoinData.price }} </h3> -->
+                
+            </main>
+        </div>
+        <footer>
+            <a href="www.javierm.site" title="Visite my porfolio">www.javierm.site</a>
+        </footer>
+
+    </div>
+</div>
+
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.0/axios.min.js" type="text/javascript"></script>
+    
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>
